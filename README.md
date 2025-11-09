@@ -188,7 +188,9 @@
 <body>
 
     <!-- 🕒 Cronômetro -->
-    <div id="timer" style="position: fixed; top: 12px; right: 20px; font-size: 2.4rem; font-weight: 900; color: #ffd43b; text-shadow: 0 0 12px #ffde78; font-family: 'Trebuchet MS', sans-serif; z-index: 9999;">35</div>
+    <div id="timer"
+        style="position: fixed; top: 12px; right: 20px; font-size: 2.4rem; font-weight: 900; color: #ffd43b; text-shadow: 0 0 12px #ffde78; font-family: 'Trebuchet MS', sans-serif; z-index: 9999;">
+        60</div>
 
     <div class="wrap">
         <header>
@@ -255,17 +257,48 @@
 
         // 🔥 Banco de perguntas (mantido)
         const allQuestions = [
-            { q: 'Qual é o segundo maior bioma do Brasil em extensão territorial?', a: ['Cerrado', 'Amazônia', 'Caatinga', 'Mata Atlântica'], c: 0 },
-            { q: 'O Cerrado é considerado o berço das águas do Brasil por abrigar nascentes de quais bacias?', a: ['Amazônica e Platina', 'São Francisco e Paraná', 'Paraná, Tocantins e São Francisco', 'Tocantins e Parnaíba'], c: 2 },
-            // ... (restante das perguntas que você já tinha)
+
+
+            { q: 'Qual é o bioma predominante na região central do Brasil, conhecido por sua vegetação de savana tropical?', a: ['Caatinga', 'Cerrado', 'Mata Atlântica', 'Pantanal'], c: 1 },
+            { q: 'Qual é a principal característica que diferencia o Cerrado de uma savana africana?', a: ['Menor densidade de árvores', 'Maior altitude média', 'Presença de solos ricos em ferro e alumínio', 'Maior umidade anual'], c: 2 },
+            { q: 'O Cerrado é conhecido como “berço das águas” porque:', a: ['Possui muitas lagoas e lagos', 'Apresenta grande número de nascentes de grandes bacias hidrográficas', 'Tem o maior índice pluviométrico do Brasil', 'Concentra rios de planície'], c: 1 },
+            { q: 'A vegetação do Cerrado apresenta adaptações estruturais como:', a: ['Folhas largas e finas', 'Troncos finos e lisos', 'Cascas espessas e raízes profundas', 'Presença de folhas suculentas'], c: 2 },
+            { q: 'A estação seca no Cerrado ocorre geralmente entre:', a: ['Novembro e março', 'Janeiro e maio', 'Maio e setembro', 'Agosto e dezembro'], c: 2 },
+            { q: 'Em relação à fauna, o Cerrado abriga espécies como:', a: ['Onça-pintada e boto-cor-de-rosa', 'Lobo-guará e tamanduá-bandeira', 'Ariranha e macaco-aranha', 'Peixe-boi e mutum-de-alagoas'], c: 1 },
+            { q: 'O processo de lixiviação intensa nos solos do Cerrado resulta em:', a: ['Aumento de sais minerais', 'Perda de nutrientes', 'Acúmulo de matéria orgânica', 'Redução da acidez'], c: 1 },
+            { q: 'O bioma Cerrado ocupa cerca de quantos milhões de km² do território brasileiro?', a: ['1,5 milhão', '2 milhões', '2,5 milhões', '3 milhões'], c: 1 },
+            { q: 'A principal causa da degradação do Cerrado é:', a: ['O desmatamento para agricultura e pecuária', 'A caça de subsistência', 'A urbanização acelerada', 'A mineração artesanal'], c: 0 },
+            { q: 'Qual tipo de vegetação é mais denso dentro do bioma Cerrado?', a: ['Campo limpo', 'Cerradão', 'Vereda', 'Campo rupestre'], c: 1 },
+            { q: 'O pequi é uma planta típica do Cerrado usada para:', a: ['Fabricação de tecidos', 'Combustível natural', 'Alimentação e cosméticos', 'Medicamentos alopáticos'], c: 2 },
+            { q: 'O clima predominante do Cerrado é:', a: ['Tropical sazonal com inverno seco', 'Equatorial úmido', 'Tropical de altitude', 'Semiárido quente'], c: 0 },
+            { q: 'A região que mais perdeu área de Cerrado nas últimas décadas é:', a: ['Centro-Oeste', 'Nordeste', 'Sudeste', 'Sul'], c: 0 },
+            { q: 'O que ocorre com a biodiversidade do Cerrado após queimadas frequentes?', a: ['Aumenta rapidamente', 'Permanece estável', 'Diminui por perda de espécies sensíveis', 'Fica mais resistente'], c: 2 },
+            { q: 'Qual destas espécies é endêmica do Cerrado?', a: ['Tatu-bola', 'Arara-azul-grande', 'Lobo-guará', 'Tamanduá-mirim'], c: 2 },
+            { q: 'O termo “mata de galeria” refere-se a:', a: ['Floresta que acompanha cursos d’água', 'Região de transição para o Pantanal', 'Área de solo arenoso e pobre', 'Vegetação rasteira e aberta'], c: 0 },
+            { q: 'A cor avermelhada dos solos do Cerrado é causada por:', a: ['Óxidos de ferro', 'Carbonato de cálcio', 'Sílica', 'Magnésio'], c: 0 },
+            { q: 'O Cerrado é um bioma considerado hotspot mundial por:', a: ['Baixa taxa de endemismo', 'Alto nível de desmatamento e alta biodiversidade', 'Baixa pluviosidade e baixa densidade populacional', 'Ser o bioma mais preservado'], c: 1 },
+            { q: 'A polinização de muitas plantas do Cerrado depende principalmente de:', a: ['Abelhas nativas', 'Pássaros migratórios', 'Vento', 'Répteis'], c: 0 },
+            { q: 'O fogo natural no Cerrado tem importância ecológica porque:', a: ['Destrói completamente a vegetação', 'Promove a germinação de sementes adaptadas', 'Aumenta a erosão', 'Diminui a fertilidade'], c: 1 },
+            { q: 'O principal tipo de relevo predominante no Cerrado é:', a: ['Planícies aluviais', 'Chapadas e planaltos', 'Depressões e vales úmidos', 'Regiões montanhosas'], c: 1 },
+            { q: 'Qual dos estados abaixo possui maior área de Cerrado?', a: ['Bahia', 'Goiás', 'Paraná', 'Acre'], c: 1 },
+            { q: 'O Cerrado contribui diretamente para a recarga de qual grande aquífero?', a: ['Aquífero Alter do Chão', 'Aquífero Guarani', 'Aquífero Serra Geral', 'Aquífero Botucatu'], c: 1 },
+            { q: 'As queimadas humanas afetam o Cerrado porque:', a: ['Substituem o fogo natural e alteram ciclos ecológicos', 'Reduzem o número de nascentes', 'Aumentam a quantidade de ferro no solo', 'Facilitam a regeneração'], c: 0 },
+            { q: 'A principal forma de conservação do Cerrado atualmente é por meio de:', a: ['Reservas extrativistas e parques nacionais', 'Agronegócio sustentável', 'Plantio de eucalipto', 'Expansão urbana planejada'], c: 0 },
+            { q: 'O nome “Cerrado” vem do termo que significa:', a: ['Área fechada e densa', 'Campo aberto', 'Terreno montanhoso', 'Solo fértil'], c: 0 },
+            { q: 'As árvores do Cerrado frequentemente apresentam galhos retorcidos porque:', a: ['O solo raso impede o crescimento vertical', 'A adaptação ao vento e à seca molda seu formato', 'São podadas por herbívoros', 'Há excesso de umidade'], c: 1 },
+            { q: 'O fruto do barbatimão é conhecido por:', a: ['Ser comestível e usado em doces', 'Ter propriedades medicinais adstringentes', 'Conter óleo essencial aromático', 'Ser venenoso'], c: 1 },
+            { q: 'A perda do Cerrado pode afetar diretamente o regime hídrico de quais bacias?', a: ['Amazonas, São Francisco e Paraná', 'Parnaíba, Tocantins e Uruguai', 'São Francisco, Paraná e Tocantins', 'Paraná, Paraguai e Madeira'], c: 2 },
+            { q: 'O solo do Cerrado é naturalmente ácido e pobre, mas pode ser utilizado para agricultura após:', a: ['Aeração natural', 'Correção com calcário e adubação', 'Plantio direto', 'Remoção da camada superficial'], c: 1 },
+            { q: 'Em termos de biodiversidade vegetal, o Cerrado abriga aproximadamente:', a: ['2 mil espécies', '5 mil espécies', '12 mil espécies', '20 mil espécies'], c: 2 }
         ];
+
 
         // ⚙️ Variáveis principais
         let teams = [
-            { name: 'Dupla 1', lives: 2, corrects: 0, eliminated: false },
-            { name: 'Dupla 2', lives: 2, corrects: 0, eliminated: false },
-            { name: 'Dupla 3', lives: 2, corrects: 0, eliminated: false },
-            { name: 'Dupla 4', lives: 2, corrects: 0, eliminated: false }
+            { name: 'Dupla 1', lives: 1, corrects: 0, eliminated: false },
+            { name: 'Dupla 2', lives: 1, corrects: 0, eliminated: false },
+            { name: 'Dupla 3', lives: 1, corrects: 0, eliminated: false },
+            { name: 'Dupla 4', lives: 1, corrects: 0, eliminated: false }
         ];
         let currentTeam = 0, currentQuestion = 0, round = 1;
         let usedHelps = { uni: false, fifty: false, skip: false };
@@ -298,7 +331,7 @@
 
         function loadQuestion() {
             clearInterval(window.timerInterval);
-            let timeLeft = 35;
+            let timeLeft = 60;
             const timerDisplay = document.getElementById('timer');
             timerDisplay.textContent = timeLeft;
             timerDisplay.style.color = '#ffd43b';
@@ -404,4 +437,5 @@
         playOpening();
     </script>
 </body>
+
 </html>
