@@ -1,4 +1,3 @@
-index.html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -252,13 +251,44 @@ index.html
         function soundWrong() { tone(220, 0.14); tone(170, 0.14, 0.12); tone(120, 0.2, 0.3); }
 
         // 🧠 Perguntas
+
+
+        // 🔥 Banco de perguntas do Jogo do Milhão Cerrado
         const allQuestions = [
-            { q: 'Qual é o bioma predominante no Estado de Goiás?', a: ['Caatinga', 'Cerrado', 'Amazônia', 'Mata Atlântica'], c: 1, hint: 'O bioma típico de Goiás é uma savana brasileira.' },
-            { q: 'Qual fruto típico do cerrado e rico em vitamina C?', a: ['Caju', 'Açaí', 'Pequi', 'Jabuticaba'], c: 2, hint: 'É usado em arroz e tem cheiro forte.' },
-            { q: 'Relação entre Cerrado e aquífero Guarani?', a: ['Nenhuma', 'Cerrado contribui para recarga de aquíferos', "Cerrado é corpo d'água", 'Cerrado é impermeável'], c: 1, hint: 'O Cerrado é fundamental para as nascentes e recarga dos aquíferos.' },
-            { q: 'Qual animal é símbolo do cerrado brasileiro?', a: ['Onça-pintada', 'Lobo-guará', 'Capivara', 'Mico-leão-dourado'], c: 1, hint: 'É um canídeo de pernas longas e pelagem avermelhada.' },
-            { q: 'Qual é a vegetação típica do cerrado?', a: ['Mata densa', 'Campos úmidos', 'Savana/arbustos esparsos', 'Manguezal'], c: 2, hint: 'Tem árvores tortas e espaçadas.' }
+            { q: 'Qual é o segundo maior bioma do Brasil em extensão territorial?', a: ['Cerrado', 'Amazônia', 'Caatinga', 'Mata Atlântica'], c: 0 },
+            { q: 'O Cerrado é considerado o berço das águas do Brasil por abrigar nascentes de quais bacias?', a: ['Amazônica e Platina', 'São Francisco e Paraná', 'Paraná, Tocantins e São Francisco', 'Tocantins e Parnaíba'], c: 2 },
+            { q: 'Qual o tipo predominante de clima no Cerrado brasileiro?', a: ['Equatorial úmido', 'Tropical sazonal', 'Semiárido', 'Subtropical úmido'], c: 1 },
+            { q: 'O solo do Cerrado é naturalmente pobre em nutrientes por ser:', a: ['Raso e arenoso', 'Ácido e rico em alumínio', 'Argiloso e fértil', 'Rico em cálcio e potássio'], c: 1 },
+            { q: 'A vegetação do Cerrado apresenta adaptações como cascas grossas e raízes profundas para resistir a:', a: ['Baixas temperaturas', 'Queimadas e seca', 'Ventos fortes', 'Excesso de chuva'], c: 1 },
+            { q: 'O bioma Cerrado abrange quantos estados brasileiros, aproximadamente?', a: ['5', '8', '12', '14'], c: 2 },
+            { q: 'O Cerrado é classificado, do ponto de vista fitogeográfico, como uma:', a: ['Floresta tropical', 'Savanas tropicais', 'Mata de galeria', 'Caatinga úmida'], c: 1 },
+            { q: 'A biodiversidade do Cerrado corresponde a cerca de quantas espécies de plantas conhecidas?', a: ['2 mil', '4 mil', '6 mil', '12 mil'], c: 3 },
+            { q: 'O termo “vereda” designa qual tipo de ambiente no Cerrado?', a: ['Campo com árvores baixas', 'Região alagada com buritis', 'Área de solo arenoso e seco', 'Campo limpo sem árvores'], c: 1 },
+            { q: 'Que animal é considerado símbolo da fauna do Cerrado?', a: ['Onça-pintada', 'Lobo-guará', 'Tamanduá-bandeira', 'Tatu-canastra'], c: 1 },
+            { q: 'As queimadas naturais no Cerrado ocorrem principalmente:', a: ['No período chuvoso', 'Na estação seca', 'Durante o inverno', 'Durante o outono'], c: 1 },
+            { q: 'Qual a principal ameaça atual à conservação do Cerrado?', a: ['Expansão agrícola', 'Mudanças climáticas', 'Turismo predatório', 'Caça de subsistência'], c: 0 },
+            { q: 'A fisionomia “cerradão” caracteriza-se por:', a: ['Campo com poucas árvores', 'Vegetação mais densa e alta', 'Área úmida com buritis', 'Campo limpo sem arbustos'], c: 1 },
+            { q: 'Qual destas plantas é típica do Cerrado?', a: ['Ipê-amarelo', 'Araucária', 'Castanheira', 'Açaizeiro'], c: 0 },
+            { q: 'A floresta de galeria é importante porque:', a: ['Protege margens dos rios e nascentes', 'Aumenta o desmatamento', 'Favorece erosão', 'É usada para pasto'], c: 0 },
+            { q: 'O Cerrado contribui para a recarga de aquíferos como o:', a: ['Alter do Chão', 'Guarani', 'Paraguaçu', 'Amazonas'], c: 1 },
+            { q: 'Qual a média de altitude das chapadas do Cerrado?', a: ['100 a 300m', '500 a 700m', '800 a 1200m', '1500 a 2000m'], c: 2 },
+            { q: 'Em termos de área, o Cerrado cobre cerca de que porcentagem do território brasileiro?', a: ['10%', '15%', '22%', '35%'], c: 2 },
+            { q: 'A cor avermelhada dos solos do Cerrado é causada pela presença de:', a: ['Cálcio', 'Óxidos de ferro', 'Magnésio', 'Silício'], c: 1 },
+            { q: 'O fogo tem papel ecológico importante no Cerrado porque:', a: ['Destrói toda a vegetação', 'Favorece a germinação de espécies adaptadas', 'Aumenta a erosão', 'Reduz a biodiversidade'], c: 1 },
+            { q: 'A fauna do Cerrado possui grande número de espécies:', a: ['Marinhas', 'Endêmicas', 'Migratórias', 'Introduzidas'], c: 1 },
+            { q: 'As folhas coriáceas (grossas e duras) das plantas do Cerrado servem para:', a: ['Atrair insetos', 'Evitar perda de água', 'Aumentar fotossíntese', 'Facilitar a reprodução'], c: 1 },
+            { q: 'Que tipo de vegetação forma o contato entre Cerrado e Floresta Amazônica?', a: ['Ecótono', 'Restinga', 'Mata de araucária', 'Caatinga'], c: 0 },
+            { q: 'O lobo-guará tem alimentação considerada:', a: ['Apenas carnívora', 'Onívora', 'Herbívora', 'Insetívora'], c: 1 },
+            { q: 'O Cerrado apresenta forte sazonalidade com chuvas concentradas em que estação?', a: ['Verão', 'Outono', 'Inverno', 'Primavera'], c: 0 },
+            { q: 'O Cerrado está localizado principalmente em qual região do Brasil?', a: ['Sul', 'Sudeste', 'Centro-Oeste', 'Nordeste'], c: 2 },
+            { q: 'O desmatamento no Cerrado favorece a perda de:', a: ['Espécies endêmicas e nascentes', 'Solos férteis', 'Água salina', 'Aumento de biomassa'], c: 0 },
+            { q: 'O nome “Cerrado” vem de:', a: ['Vegetação densa e fechada', 'Região aberta com poucas árvores', 'Solos rasos e duros', 'Área montanhosa'], c: 0 },
+            { q: 'A presença de espécies como o pequi e o barbatimão indica:', a: ['Solos ricos', 'Áreas úmidas', 'Vegetação típica do Cerrado', 'Ambiente pantanoso'], c: 2 },
+            { q: 'O bioma Cerrado é considerado um hotspot mundial de biodiversidade por:', a: ['Baixa diversidade', 'Alta taxa de endemismo e destruição acelerada', 'Ser frio e seco', 'Alta pluviosidade'], c: 1 }
         ];
+
+
+
 
         // ⚙️ Variáveis principais
         let teams = [
@@ -340,7 +370,7 @@ index.html
                 teams[currentTeam].lives--;
                 if (teams[currentTeam].lives <= 0) {
                     teams[currentTeam].eliminated = true;
-                    msgEl.textContent = '❌ Errou e ficou sem vidas! 💀 Eliminado!';
+                    msgEl.textContent = '❌ Errou! 💀 Eliminado!';
                 } else {
                     msgEl.textContent = '❌ Resposta errada!';
                 }
@@ -384,10 +414,70 @@ index.html
             updateUI();
         };
 
-        // 🚀 Inicialização
-        renderTeams();
-        loadQuestion();
-    </script>
-</body>
+        // 🚀 Inicialização   
+        // 🔥 Abertura do jogo
+        // 🔥 Abertura do jogo
+        // 🔥 Abertura do jogo (corrigida: cria overlay em vez de usar .container inexistente)
+        function playOpening() {
+            // cria overlay full-screen
+            const overlay = document.createElement('div');
+            overlay.id = 'opening-overlay';
+            Object.assign(overlay.style, {
+                position: 'fixed',
+                inset: '0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexDirection: 'column',
+                gap: '18px',
+                background: 'linear-gradient(180deg, rgba(3,4,26,0.95), rgba(3,4,26,0.98))',
+                color: '#fff',
+                zIndex: 9999,
+                textAlign: 'center',
+                padding: '24px'
+            });
 
-</html>
+            overlay.innerHTML = `
+    <div style="max-width:900px;">
+      <h1 style="font-size:3rem;margin:0 0 8px;color:#ffd43b;text-shadow:0 0 15px #ffd43b;">💰 Jogo do Milhão Cerrado 💰</h1>
+      <p style="margin:0 0 18px;font-size:1.15rem;opacity:0.95;">Teste seus conhecimentos — prepare a dupla e boa sorte!</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
+        <button id="startGame" style="background:#0bb14a;border:none;padding:12px 26px;border-radius:10px;font-weight:800;cursor:pointer;">Começar ▶</button>
+        <button id="skipIntro" style="background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px 20px;border-radius:10px;cursor:pointer;">Pular Abertura</button>
+      </div>
+    </div>
+  `;
+
+            // adiciona ao body
+            document.body.appendChild(overlay);
+
+            // pequena vinheta sonora (usa WebAudio para consistência)
+            try {
+                const tnow = audioCtx.currentTime;
+                tone(440, 0.08, 0, 'sine', 0.12);
+                tone(660, 0.08, 0.09, 'sine', 0.12);
+                tone(880, 0.10, 0.18, 'sine', 0.12);
+            } catch (e) {
+                // se audioCtx não estiver pronto, ignora
+            }
+
+            // animação de fade-out e remoção do overlay
+            function closeOverlay() {
+                overlay.style.transition = 'opacity 600ms ease';
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+                    loadQuestion(); // inicia o jogo
+                }, 600);
+            }
+
+            document.getElementById('startGame').addEventListener('click', closeOverlay);
+            document.getElementById('skipIntro').addEventListener('click', () => {
+                // simplesmente remove sem som e inicia
+                if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+                loadQuestion();
+            });
+        }
+
+        // 🚀 Iniciar a abertura quando o script carregar
+        playOpening();
