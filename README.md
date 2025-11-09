@@ -295,7 +295,7 @@
 
         // ⚙️ Variáveis principais
         let teams = [
-            { name: 'Dupla 1', lives: 1 , corrects: 0, eliminated: false },
+            { name: 'Dupla 1', lives: 1, corrects: 0, eliminated: false },
             { name: 'Dupla 2', lives: 1, corrects: 0, eliminated: false },
             { name: 'Dupla 3', lives: 1, corrects: 0, eliminated: false },
             { name: 'Dupla 4', lives: 1, corrects: 0, eliminated: false }
