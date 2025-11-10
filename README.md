@@ -362,6 +362,10 @@
             msgEl.textContent = '';
             usedHelps = { uni: false, fifty: false, skip: false };
             updateUI();
+            document.getElementById("btnUni").disabled = false;
+            document.getElementById("btn5050").disabled = false;
+            document.getElementById("btnSkip").disabled = false;
+
         }
 
         function chooseAnswer(i) {
