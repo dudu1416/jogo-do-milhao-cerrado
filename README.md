@@ -437,6 +437,46 @@
                 }, 600);
             };
         }
+        // 🎓 Ajuda dos Universitários
+        document.getElementById('btnUni').onclick = () => {
+            if (usedHelps.uni) return;
+            usedHelps.uni = true;
+            const q = allQuestions[currentQuestion % allQuestions.length];
+            const correct = q.c;
+            let suggestion = Math.random() < 0.8 ? correct : Math.floor(Math.random() * q.a.length);
+            msgEl.textContent = `🎓 Os universitários acham que a resposta correta é: "${q.a[suggestion]}"`;
+            document.getElementById('btnUni').disabled = true;
+        };
+
+        // 🌓 Ajuda 50/50
+        document.getElementById('btn5050').onclick = () => {
+            if (usedHelps.fifty) return;
+            usedHelps.fifty = true;
+            const q = allQuestions[currentQuestion % allQuestions.length];
+            const correct = q.c;
+            const opts = document.querySelectorAll('.option');
+            let removed = 0;
+            while (removed < 2) {
+                let i = Math.floor(Math.random() * opts.length);
+                if (i !== correct && !opts[i].disabled) {
+                    opts[i].disabled = true;
+                    opts[i].style.opacity = 0.3;
+                    removed++;
+                }
+            }
+            msgEl.textContent = "🌓 50/50 usado! Duas opções foram eliminadas.";
+            document.getElementById('btn5050').disabled = true;
+        };
+
+        // ⏭️ Pular questão
+        document.getElementById('btnSkip').onclick = () => {
+            if (usedHelps.skip) return;
+            usedHelps.skip = true;
+            msgEl.textContent = "⏭️ Questão pulada!";
+            document.getElementById('btnSkip').disabled = true;
+            clearInterval(window.timerInterval);
+            setTimeout(nextTurn, 2000);
+        };
 
         playOpening();
     </script>
